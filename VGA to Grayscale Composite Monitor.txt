@@ -1,0 +1,40 @@
+from web page: http://www.repairfaq.org/sam/vidconv.htm#nvcvgtc1
+
+VGA to Grayscale Composite Monitor
+
+This will only work if you can program the video card to produce a compatible resolution and scan rate.
+If you would like to experiment, here is a really simple circuit that may work well enough for combining Hsync, Vsync, and one of the VGA color signals, say green, into a composite video.
+
+If the monitor sense lines on the VGA connector are tied MS1 (pin 12) = GND, MS0 (pin 11) = no connect, then some programs will default to monochrome and use a reasonable color map. I don't know how you will get a reasonable mapping to monochrome for the others.
+
+All you will need are 4 resistors.
+
+I am calling your connector on the monitor 'Composite Video In'.
+
+Hsync through 500-1K ohm (R1) to Composite Video In.
+Vsync through 500-1K ohm (R2) to Composite Video In.
+Green Video through 200 ohm (R3 - variable) to Composite Video In.
+Green Video side of R3 to Ground through an 82 ohm (R4) resistor.
+Tie this ground to the BNC or RCA connector ground.
+
+                         R1 
+        Hsync o--------/\/\/------------+
+                                        |
+                         R2             |
+        Vsync o--------/\/\/------------+
+                                        |
+                         R3             |
+  Green Video o----+---/\/\/--+---------+--------o Composite Video In 
+                   |     ^    |                    (Termination = Hi Z)
+                   \     +----+
+                   /                    +--------o GND of monitor
+                   \ R4                 |
+                   /                    |
+                   |                    |
+ GND (shield) o----+--------------------+
+
+It is essential that all this be built as close to the monitor as possible for best signal quality.
+
+another web page showing a little diferent option
+http://homepage.ntlworld.com/deborah.clayton1/ULA/ula.html
+
